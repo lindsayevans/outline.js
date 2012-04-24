@@ -5,11 +5,16 @@
 	var style_element = d.createElement('STYLE'),
 	    dom_events = 'addEventListener' in d,
 	    add_event_listener = function(type, callback){
+			// Basic cross-browser event handling
 			if(dom_events){
 				d.addEventListener(type, callback);
 			}else{
 				d.attachEvent('on' + type, callback);
 			}
+		},
+	    set_css = function(css_text){
+			// Handle setting of <style> element contents in IE8
+			!!style_element.styleSheet ? style_element.styleSheet.cssText = css_text : style_element.innerHTML = css_text;
 		}
 	;
 
@@ -17,11 +22,11 @@
 
 	// Using mousedown instead of mouseover, so that previously focused elements don't lose focus ring on mouse move
 	add_event_listener('mousedown', function(){
-		style_element.innerHTML = 'a{outline:none}';
+		set_css('a { outline: none; }');
 	});
 
 	add_event_listener('keydown', function(){
-		style_element.innerHTML = '';
+		set_css('');
 	});
 
 })(document);
