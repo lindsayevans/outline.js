@@ -22,7 +22,7 @@
 
 	// Using mousedown instead of mouseover, so that previously focused elements don't lose focus ring on mouse move
 	add_event_listener('mousedown', function(){
-		set_css('a { outline: none; }');
+		set_css('a{outline:none}');
 	});
 
 	add_event_listener('keydown', function(){
