@@ -37,13 +37,28 @@ export class RemoveFocusOutline {
     /**
      * Adds event listeners for mousedown & keydown
      */
-    private addEventListeners(d = document) {
+    public addEventListeners() {
 
         this.addEventListener(this.config.mouseEvent, () => {
             this.setCss(this.config.mouseCss);
         });
 
         this.addEventListener(this.config.keyboardEvent, () => {
+            this.setCss(this.config.keyboardCss);
+        });
+
+    }
+
+    /**
+     * Removes event listeners for mousedown & keydown
+     */
+    public removeEventListeners() {
+
+        this.removeEventListener(this.config.mouseEvent, () => {
+            this.setCss(this.config.mouseCss);
+        });
+
+        this.removeEventListener(this.config.keyboardEvent, () => {
             this.setCss(this.config.keyboardCss);
         });
 
@@ -68,6 +83,14 @@ export class RemoveFocusOutline {
             document.addEventListener(type, callback);
         } else {
             document.attachEvent('on' + type, callback);
+        }
+    }
+
+    private removeEventListener(type: string, callback: EventListenerOrEventListenerObject) {
+        if (this.supportsDomEvents()) {
+            document.removeEventListener(type, callback);
+        } else {
+            document.detachEvent('on' + type, callback);
         }
     }
 
