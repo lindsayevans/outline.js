@@ -2,10 +2,6 @@ import { RemoveFocusOutlineConfiguration } from './remove-focus-outline-configur
 
 /**
  * Handles initialisation of the library, mouse/keyboard events & setting relevant CSS
- *
- * TODO:
- * - Add 'removeEventListeners'
- * - Make add/remove event listeners public
  */
 export class RemoveFocusOutline {
 
