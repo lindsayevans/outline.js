@@ -7,8 +7,12 @@ export class RemoveFocusOutline {
 
     private $style: HTMLStyleElement;
 
+    private boundSetMouseCss: EventListenerOrEventListenerObject;
+    private boundSetKeyboardCss: EventListenerOrEventListenerObject;
+
     public config = new RemoveFocusOutlineConfiguration();
 
+    /* istanbul ignore next */
     constructor(options: Partial<RemoveFocusOutlineConfiguration> = {}) {
         this.config = this.mergeConfiguration(options);
         this.addStyleElement();
@@ -35,6 +39,7 @@ export class RemoveFocusOutline {
      */
     private addStyleElement() {
         this.$style = document.createElement('style');
+        this.$style.setAttribute('data-remove-focus-outline-style', '');
         document.getElementsByTagName('head')[0].appendChild(this.$style);
     }
 
@@ -42,36 +47,35 @@ export class RemoveFocusOutline {
      * Adds event listeners for mousedown & keydown
      */
     public addEventListeners() {
+        this.boundSetMouseCss = this.setMouseCss.bind(this);
+        this.addEventListener(this.config.mouseEvent, this.boundSetMouseCss);
 
-        this.addEventListener(this.config.mouseEvent, () => {
-            this.setCss(this.config.mouseCss);
-        });
-
-        this.addEventListener(this.config.keyboardEvent, () => {
-            this.setCss(this.config.keyboardCss);
-        });
-
+        this.boundSetKeyboardCss = this.setKeyboardCss.bind(this);
+        this.addEventListener(this.config.keyboardEvent, this.boundSetKeyboardCss);
     }
 
     /**
      * Removes event listeners for mousedown & keydown
      */
     public removeEventListeners() {
+        this.removeEventListener(this.config.mouseEvent, this.boundSetMouseCss);
+        this.removeEventListener(this.config.keyboardEvent, this.boundSetKeyboardCss);
+    }
 
-        this.removeEventListener(this.config.mouseEvent, () => {
-            this.setCss(this.config.mouseCss);
-        });
+    private setMouseCss() {
+        this.setCss(this.config.mouseCss);
+    }
 
-        this.removeEventListener(this.config.keyboardEvent, () => {
-            this.setCss(this.config.keyboardCss);
-        });
-
+    private setKeyboardCss() {
+        this.setCss(this.config.keyboardCss);
     }
 
     /**
      * Sets the CSS
      */
     private setCss(css: string) {
+        /* istanbul ignore if */
+        // IE8 compatibility
         if (this.supportsCssText()) {
             this.$style.styleSheet.cssText = css;
         } else {
@@ -83,17 +87,21 @@ export class RemoveFocusOutline {
      * Basic cross-browser event handling
      */
     private addEventListener(type: string, callback: EventListenerOrEventListenerObject) {
+        /* istanbul ignore else */
         if (this.supportsDomEvents()) {
             document.addEventListener(type, callback);
         } else {
+            // IE8 compatibility
             document.attachEvent('on' + type, callback);
         }
     }
 
     private removeEventListener(type: string, callback: EventListenerOrEventListenerObject) {
+        /* istanbul ignore else */
         if (this.supportsDomEvents()) {
             document.removeEventListener(type, callback);
         } else {
+            // IE8 compatibility
             document.detachEvent('on' + type, callback);
         }
     }
