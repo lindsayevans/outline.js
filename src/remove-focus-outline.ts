@@ -20,6 +20,14 @@ export class RemoveFocusOutline {
     }
 
     /**
+     * Removes all event listeners & the style element
+     */
+    public destroy() {
+        this.$style.remove();
+        this.removeEventListeners();
+    }
+
+    /**
      * Merges user-supplied configuration options with defaults
      */
     private mergeConfiguration(options: Partial<RemoveFocusOutlineConfiguration>): RemoveFocusOutlineConfiguration {
