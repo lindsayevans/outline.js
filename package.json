@@ -2,9 +2,11 @@
   "name": "remove-focus-outline",
   "version": "1.2.1",
   "description": "Removes CSS outlines in an accessible manner",
-  "main": "outline.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "shx rm -rf lib",
+    "build": "shx mkdir -p lib && shx cp src/index.js lib/"
   },
   "repository": {
     "type": "git",
@@ -22,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/lindsayevans/outline.js/issues"
   },
-  "homepage": "https://github.com/lindsayevans/outline.js#readme"
+  "homepage": "https://github.com/lindsayevans/outline.js#readme",
+  "devDependencies": {
+    "shx": "^0.3.2"
+  }
 }
