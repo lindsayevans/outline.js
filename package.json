@@ -1,8 +1,26 @@
 {
-  "name": "outline.js",
-  "version": "1.2.0",
+  "name": "remove-focus-outline",
+  "version": "1.2.1",
+  "description": "Removes CSS outlines in an accessible manner",
   "main": "outline.js",
-  "repository": "https://github.com/lindsayevans/outline.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lindsayevans/outline.js.git"
+  },
+  "keywords": [
+    "focus",
+    "outline",
+    "css",
+    "a11y",
+    "accessibility"
+  ],
   "author": "Lindsay Evans <linz@linz.id.au>",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lindsayevans/outline.js/issues"
+  },
+  "homepage": "https://github.com/lindsayevans/outline.js#readme"
 }
