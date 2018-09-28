@@ -1,3 +1,5 @@
 node_modules
 lib
 .rpt2_cache
+test-coverage
+test-reports
