@@ -10,12 +10,15 @@ export class RemoveFocusOutline {
     private boundSetMouseCss: EventListenerOrEventListenerObject;
     private boundSetKeyboardCss: EventListenerOrEventListenerObject;
 
+    private supportsCssText = false;
+
     public config = new RemoveFocusOutlineConfiguration();
 
     /* istanbul ignore next */
     constructor(options: Partial<RemoveFocusOutlineConfiguration> = {}) {
         this.config = this.mergeConfiguration(options);
         this.addStyleElement();
+        this.supportsCssText = this.detectSupportsCssText();
         this.addEventListeners();
     }
 
@@ -70,16 +73,22 @@ export class RemoveFocusOutline {
         this.setCss(this.config.keyboardCss);
     }
 
+    private currentCss: string;
+
     /**
      * Sets the CSS
      */
     private setCss(css: string) {
-        /* istanbul ignore if */
-        // IE8 compatibility
-        if (this.supportsCssText()) {
-            this.$style.styleSheet.cssText = css;
-        } else {
-            this.$style.innerHTML = css;
+
+        if (css !== this.currentCss) {
+            this.currentCss = css;
+            /* istanbul ignore if */
+            // IE8 compatibility
+            if (this.supportsCssText) {
+                this.$style.styleSheet.cssText = css;
+            } else {
+                this.$style.innerHTML = css;
+            }
         }
     }
 
@@ -116,7 +125,7 @@ export class RemoveFocusOutline {
     /**
      * Detect whether the browser supports `styleSheet.csstext`
      */
-    private supportsCssText(): boolean {
+    private detectSupportsCssText(): boolean {
         return !!this.$style.styleSheet;
     }
 
