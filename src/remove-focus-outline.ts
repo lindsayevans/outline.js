@@ -1,28 +1,29 @@
+import { RemoveFocusOutlineConfiguration } from './remove-focus-outline-configuration';
+
 /**
  * Handles initialisation of the library, mouse/keyboard events & setting relevant CSS
  *
  * TODO:
  * - Add 'removeEventListeners'
  * - Make add/remove event listeners public
- * - CSS + event names should be in config
  */
 export class RemoveFocusOutline {
 
     private $style: HTMLStyleElement;
 
-    /**
-     * The CSS injected for mouse users
-     */
-    private mouseCss = ':focus{outline:0}::-moz-focus-inner{border:0}';
+    public config = new RemoveFocusOutlineConfiguration();
 
-    /**
-     * The CSS injected for keyboard users
-     */
-    private keyboardCss = '';
-
-    constructor() {
+    constructor(options: Partial<RemoveFocusOutlineConfiguration> = {}) {
+        this.config = this.mergeConfiguration(options);
         this.addStyleElement();
         this.addEventListeners();
+    }
+
+    /**
+     * Merges user-supplied configuration options with defaults
+     */
+    private mergeConfiguration(options: Partial<RemoveFocusOutlineConfiguration>): RemoveFocusOutlineConfiguration {
+        return Object.assign(this.config, options);
     }
 
     /**
@@ -38,13 +39,12 @@ export class RemoveFocusOutline {
      */
     private addEventListeners(d = document) {
 
-        // Using mousedown instead of mouseover, so that previously focused elements don't lose focus ring on mouse move
-        this.addEventListener('mousedown', () => {
-            this.setCss(this.mouseCss);
+        this.addEventListener(this.config.mouseEvent, () => {
+            this.setCss(this.config.mouseCss);
         });
 
-        this.addEventListener('keydown', () => {
-            this.setCss(this.keyboardCss);
+        this.addEventListener(this.config.keyboardEvent, () => {
+            this.setCss(this.config.keyboardCss);
         });
 
     }
