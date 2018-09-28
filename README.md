@@ -6,18 +6,18 @@ Removes CSS outlines in an accessible manner
 
 Based on http://www.paciellogroup.com/blog/2012/04/how-to-remove-css-outlines-in-an-accessible-manner/
 
-> :new: I'm working busily on version 2 of remove-focus-outline - pop on over to the [project page](https://github.com/lindsayevans/outline.js/projects/1) to see what's happening, or take a look at the [`develop` branch](https://github.com/lindsayevans/outline.js/tree/develop).
+> :new: This branch is for the next version of remove-focus-outline - pop on over to the [project page](https://github.com/lindsayevans/outline.js/projects/1) to see what's happening.
 
 ## Installation
 
 ```sh
-npm install remove-focus-outline
+npm install remove-focus-outline@next
 ```
 
 Or if Yarn is your thing:
 
 ```sh
-yarn add remove-focus-outline
+yarn add remove-focus-outline@next
 ```
 
 ## Usage
@@ -32,7 +32,7 @@ CommonJS - RequireJS etc.
 require('remove-focus-outline');
 ```
 
-HTML `<script>`:
+UMD - HTML `<script>`
 ```html
-<script src="node_modules/remove-focus-outline/outline.js"></script>
+<script src="node_modules/remove-focus-outline/lib/remove-focus-outline.umd.js"></script>
 ```

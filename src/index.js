@@ -1,4 +1,3 @@
-/*! outline.js v1.2.0 - https://github.com/lindsayevans/outline.js/ */
 (function(d){
 
 	var style_element = d.createElement('STYLE'),
