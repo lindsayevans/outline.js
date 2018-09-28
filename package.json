@@ -5,6 +5,7 @@
   "main": "lib/remove-focus-outline.cjs.js",
   "module": "lib/remove-focus-outline.esm.js",
   "browser": "lib/remove-focus-outline.umd.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "shx rm -rf lib",
@@ -30,6 +31,8 @@
   "homepage": "https://github.com/lindsayevans/outline.js#readme",
   "devDependencies": {
     "rollup": "^0.66.2",
-    "shx": "^0.3.2"
+    "rollup-plugin-typescript2": "^0.17.0",
+    "shx": "^0.3.2",
+    "typescript": "^3.1.1"
   }
 }

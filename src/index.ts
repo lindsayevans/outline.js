@@ -1,8 +1,19 @@
+// Temporarily adding non-standard browser stuff
+interface Document {
+    attachEvent(type: string, listener: EventListenerOrEventListenerObject): void;
+}
+interface HTMLElement {
+    styleSheet: {
+        cssText?: string;
+        innerHTML?: string;
+    }
+}
+
 (function(d){
 
 	var style_element = d.createElement('STYLE'),
 	    dom_events = 'addEventListener' in d,
-	    add_event_listener = function(type, callback){
+	    add_event_listener = function(type: string, callback: EventListenerOrEventListenerObject){
 			// Basic cross-browser event handling
 			if(dom_events){
 				d.addEventListener(type, callback);
@@ -10,7 +21,7 @@
 				d.attachEvent('on' + type, callback);
 			}
 		},
-	    set_css = function(css_text){
+	    set_css = function(css_text: string){
 			// Handle setting of <style> element contents in IE8
 			!!style_element.styleSheet ? style_element.styleSheet.cssText = css_text : style_element.innerHTML = css_text;
 		}

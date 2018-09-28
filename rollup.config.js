@@ -1,15 +1,16 @@
+import typescript from 'rollup-plugin-typescript2';
 import pkg from './package.json';
 
 const year = (new Date()).getFullYear();
 const banner = `/*!
  * ${pkg.name} v${pkg.version}
- * ©️ Copyright ${year} Lindsay Evans & contributors
+ * © Copyright ${year} Lindsay Evans & contributors
  * Released under the MIT license
  * ${pkg.homepage}
  */`;
 
 export default {
-    input: 'src/index.js',
+    input: 'src/index.ts',
     output: [
         {
             file: pkg.main,
@@ -34,5 +35,10 @@ export default {
     external: [
         ...Object.keys(pkg.dependencies || {}),
         ...Object.keys(pkg.peerDependencies || {}),
+    ],
+    plugins: [
+        typescript({
+            typescript: require('typescript'),
+        }),
     ],
 }
