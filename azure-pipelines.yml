@@ -22,3 +22,21 @@ steps:
 - script: |
     npm run build
   displayName: 'Build'
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: 'test-reports/*.xml'
+
+- task: DeleteFiles@1
+  inputs:
+    contents: 'node_modules'
+
+- task: DeleteFiles@1
+  inputs:
+    contents: '.rpt2_cache'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: '$(Build.SourcesDirectory)'
+    artifactName: 'drop'
