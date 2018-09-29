@@ -1,4 +1,11 @@
 !lib
+src
+tsconfig.json
+test-coverage/
+test-reports/
+.vscode/
+.rpt2_cache/
 .editorconfig
 rollup.config.js
-src
+jest.config.js
+tslint.json
