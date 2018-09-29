@@ -87,6 +87,21 @@ describe('The library should...', () => {
         expect($style.item(0).innerHTML).not.toContain('TEST_MOUSE_CSS')
     })
 
+    test('correctly merge user supplied config', () => {
+        rfo = new RemoveFocusOutline({
+            mouseCss: '.TEST_MOUSE_CSS{}',
+            keyboardCss: '.TEST_KB_CSS{}',
+            mouseEvent: 'TEST_MOUSE_EVENT',
+            keyboardEvent: 'TEST_KB_EVENT'
+        })
+
+        expect(rfo.config.mouseCss).toContain('TEST_MOUSE_CSS')
+        expect(rfo.config.keyboardCss).toContain('TEST_KB_CSS')
+        expect(rfo.config.mouseEvent).toBe('TEST_MOUSE_EVENT')
+        expect(rfo.config.keyboardEvent).toContain('TEST_KB_EVENT')
+
+    })
+
     // TODO:
     // * configuration merges correctly
 
