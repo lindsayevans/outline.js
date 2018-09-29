@@ -102,7 +102,12 @@ describe('The library should...', () => {
 
     })
 
-    // TODO:
-    // * configuration merges correctly
+    test('only set CSS once for multiple of same event', () => {
+        setCssSpy.mockClear()
+        triggerEvent('mousedown')
+        triggerEvent('mousedown')
+
+        expect(setCssSpy).toHaveReturnedWith(false)
+    })
 
 })

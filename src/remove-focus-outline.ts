@@ -78,7 +78,7 @@ export class RemoveFocusOutline {
     /**
      * Sets the CSS
      */
-    private setCss(css: string) {
+    private setCss(css: string): boolean {
 
         if (css !== this.currentCss) {
             this.currentCss = css;
@@ -89,6 +89,9 @@ export class RemoveFocusOutline {
             } else {
                 this.$style.innerHTML = css;
             }
+            return true;
+        } else {
+            return false;
         }
     }
 
