@@ -26,7 +26,7 @@ steps:
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
-    testResultsFiles: 'test-resports/*.xml'
+    testResultsFiles: 'test-reports/*.xml'
 
 - task: DeleteFiles@1
   inputs:
