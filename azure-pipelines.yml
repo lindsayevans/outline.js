@@ -27,3 +27,14 @@ steps:
   inputs:
     testResultsFormat: 'JUnit'
     testResultsFiles: 'test-resports/*.xml'
+
+- task: DeleteFiles@1
+  inputs:
+    contents: |
+        .rpt2_cache
+        node_modules
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: 'drop'
