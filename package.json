@@ -37,6 +37,7 @@
   "devDependencies": {
     "@types/jest": "^23.3.2",
     "@types/object-assign": "^4.0.30",
+    "browserslist": "^4.1.1",
     "chokidar-cli": "^1.2.1",
     "jest": "^23.6.0",
     "jest-junit": "^5.1.0",

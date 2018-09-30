@@ -36,3 +36,29 @@ UMD - HTML `<script>`
 ```html
 <script src="node_modules/remove-focus-outline/lib/remove-focus-outline.umd.js"></script>
 ```
+
+## Browser support
+
+As defined in [`.browserslistrc`](./.browserslistrc):
+```
+> 1%
+IE >=8
+```
+
+Which as of October 2018 is:
+```
+and_chr 69
+and_uc 11.8
+chrome 68
+chrome 67
+edge 17
+firefox 61
+ie 11
+ie 10
+ie 9
+ie 8
+ios_saf 11.3-11.4
+ios_saf 11.0-11.2
+op_mini all
+safari 11.1
+```
