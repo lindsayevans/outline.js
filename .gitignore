@@ -3,3 +3,5 @@ lib
 .rpt2_cache
 test-coverage
 test-reports
+local.log
+tests_output

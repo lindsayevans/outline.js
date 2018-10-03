@@ -3,6 +3,7 @@ src
 tsconfig.json
 test-coverage/
 test-reports/
+e2e/
 .vscode/
 .rpt2_cache/
 .editorconfig
