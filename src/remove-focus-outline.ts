@@ -20,6 +20,7 @@ export class RemoveFocusOutline {
         this.addStyleElement();
         this.supportsCssText = this.detectSupportsCssText();
         this.addEventListeners();
+        this.addClassName();
     }
 
     /**
@@ -44,6 +45,13 @@ export class RemoveFocusOutline {
         this.$style = document.createElement('style');
         this.$style.setAttribute('data-remove-focus-outline-style', '');
         document.getElementsByTagName('head')[0].appendChild(this.$style);
+    }
+
+    /**
+     * Adds a class name to the HTML element when initialised so we can easily target our CSS
+     */
+    private addClassName() {
+        document.querySelector('html').classList.add('--remove-focus-outline--initialised');
     }
 
     /**
