@@ -12,8 +12,10 @@ module.exports = {
             }
         ]
     ],
-    collectCoverageFrom: [
-        'src/**/*.ts',
-        '!src/**/index.ts',
-    ],
+    collectCoverageFrom: ['src/**/*.ts', '!src/**/index.ts'],
+    globals: {
+        'ts-jest': {
+            tsConfig: 'tsconfig.test.json'
+        }
+    }
 };
