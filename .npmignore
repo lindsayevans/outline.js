@@ -1,12 +1,4 @@
-!lib
-src
-tsconfig.json
-test-coverage/
-test-reports/
-e2e/
-.vscode/
-.rpt2_cache/
-.editorconfig
-rollup.config.js
-jest.config.js
-tslint.json
+*
+!lib/*
+!README.md
+!LICENSE
