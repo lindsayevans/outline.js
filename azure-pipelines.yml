@@ -4,9 +4,6 @@ jobs:
     vmImage: 'Ubuntu 16.04'
 
     trigger:
-    branches:
-        include:
-        - develop
     tags:
         include:
         - '*-beta.*'
