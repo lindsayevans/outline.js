@@ -1,0 +1,9 @@
+{
+    "defaultCommandTimeout": 30000,
+    "baseUrl": "http://localhost:8080",
+    "video": false,
+    "reporter": "cypress-multi-reporters",
+    "reporterOptions": {
+        "configFile": "reporter-config.json"
+    }
+}

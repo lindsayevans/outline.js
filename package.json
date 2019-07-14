@@ -38,11 +38,14 @@
     },
     "homepage": "https://github.com/lindsayevans/outline.js#readme",
     "devDependencies": {
+        "@cypress/webpack-preprocessor": "^4.1.0",
         "@types/jest": "^24.0.15",
         "@types/node": "^12.6.2",
         "@types/object-assign": "^4.0.30",
         "browserslist": "^4.6.4",
         "chokidar-cli": "^1.2.2",
+        "cypress": "^3.4.0",
+        "cypress-multi-reporters": "^1.1.23",
         "http-server": "^0.11.1",
         "jest": "^24.0.0",
         "jest-junit": "^6.4.0",
@@ -51,7 +54,9 @@
         "rollup-plugin-typescript2": "^0.22.0",
         "shx": "^0.3.2",
         "ts-jest": "^24.0.2",
+        "ts-loader": "^6.0.4",
         "tslint": "^5.18.0",
-        "typescript": "^3.5.3"
+        "typescript": "^3.5.3",
+        "webpack": "^4.35.3"
     }
 }
