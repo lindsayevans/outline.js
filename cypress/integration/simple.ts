@@ -1,3 +1,5 @@
+import 'cypress-plugin-tab';
+
 describe('Simple page', () => {
     it('loads', () => {
         cy.visit('/examples/');
@@ -6,11 +8,13 @@ describe('Simple page', () => {
 
     it('displays focus rectangle on tab navigation', () => {
         cy.visit('/examples/');
-        cy.get('.test-link').focus();
+        cy.get('body').tab();
+        // cy.screenshot('Simple page - link shows focus');
         cy.percySnapshot('Simple page - link shows focus', {
             widths: [420]
         });
-        cy.get('.test-button').focus();
+        cy.focused().tab();
+        // cy.screenshot('Simple page - button shows focus');
         cy.percySnapshot('Simple page - button shows focus', {
             widths: [420]
         });
@@ -19,10 +23,12 @@ describe('Simple page', () => {
     it('doesnt display focus rectangle on mouse navigation', () => {
         cy.visit('/examples/');
         cy.get('.test-link').click();
+        // cy.screenshot('Simple page - link hides focus');
         cy.percySnapshot('Simple page - link hides focus', {
             widths: [420]
         });
         cy.get('.test-button').click();
+        // cy.screenshot('Simple page - button hides focus');
         cy.percySnapshot('Simple page - button hides focus', {
             widths: [420]
         });
