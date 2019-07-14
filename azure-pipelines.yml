@@ -1,5 +1,5 @@
 jobs:
-- job: Beta build
+- job: Beta
   pool:
     vmImage: 'Ubuntu 16.04'
 
@@ -13,7 +13,7 @@ jobs:
     steps:
     - template: deployment-templates/build.yml
 
-- job: Release build
+- job: Release
   pool:
     vmImage: 'Ubuntu 16.04'
 
