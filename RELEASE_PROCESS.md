@@ -2,22 +2,26 @@
 
 ## Regular releases
 
--   Update `version` in `package.json` using [SemVer](https://semver.org/)
+-   Create new Gitflow release with new version number following [SemVer](https://semver.org/)
     -   e.g. `1.2.3` -> `1.3.0`
--   Create new Gitflow release with new version number, open new pull request, finish release when approved
--   Push `master`, will trigger new build in Azure DevOps
+-   Update `version` in `package.json`
+-   Open new pull request
+-   Publish package:
+
+```sh
+npm publish
+```
+
+-   Finish release
 
 ## Beta releases
 
--   Update `version` in `package.json` using [SemVer](https://semver.org/)
+-   Update `version` in `package.json` following [SemVer](https://semver.org/)
     -   e.g. `1.2.3` -> `1.3.0-beta.1`
 -   Tag `develop` with new version number
--   Push `develop`, will trigger new build in Azure DevOps
 
-## Release approval
+-   Publish package:
 
--   Successful build will trigger a new release in Azure DevOps
--   Release will need a manual approval:
-    -   You'll only have 30s before the OTP times out, so have everything open in tabs etc.
-    -   In 'Variables' tab, click 'Edit' > 'Edit release', set npmToken to OTP token for NPM, save
-    -   Approve release
+```sh
+npm publish --tag next
+```

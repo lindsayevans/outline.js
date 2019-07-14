@@ -17,7 +17,8 @@
         "start:lint-ts": "chokidar 'src/**/*.ts' -c \"npm run lint -- --force\" --initial --verbose",
         "start:test": "jest --watch --coverage",
         "debug:jest": "node --nolazy --inspect-brk=9229 node_modules/.bin/jest --runInBand --coverage false --no-cache",
-        "serve": "http-server ./examples"
+        "serve": "http-server ./examples",
+        "prepublish": "npm run clean && npm run build"
     },
     "repository": {
         "type": "git",
