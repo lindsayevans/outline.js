@@ -1,57 +1,57 @@
 {
-  "name": "remove-focus-outline",
-  "version": "2.0.0-beta.3",
-  "description": "Removes CSS outlines in an accessible manner",
-  "main": "lib/remove-focus-outline.cjs.js",
-  "module": "lib/remove-focus-outline.esm.js",
-  "browser": "lib/remove-focus-outline.umd.js",
-  "types": "lib/index.d.ts",
-  "scripts": {
-    "clean": "shx rm -rf lib",
-    "build": "rollup -c",
-    "lint": "tslint --format codeFrame 'src/**/*.ts'",
-    "test": "jest --no-cache --coverage",
-    "e2e": "nightwatch",
-    "start": "run-p start:*",
-    "start:rollup": "rollup -cw",
-    "start:lint-ts": "chokidar 'src/**/*.ts' -c \"npm run lint -- --force\" --initial --verbose",
-    "start:test": "jest --watch --coverage",
-    "debug:jest": "node --nolazy --inspect-brk=9229 node_modules/.bin/jest --runInBand --coverage false --no-cache",
-    "serve": "http-server ./examples"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lindsayevans/outline.js.git"
-  },
-  "keywords": [
-    "focus",
-    "outline",
-    "css",
-    "a11y",
-    "accessibility"
-  ],
-  "author": "Lindsay Evans <linz@linz.id.au>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/lindsayevans/outline.js/issues"
-  },
-  "homepage": "https://github.com/lindsayevans/outline.js#readme",
-  "devDependencies": {
-    "@types/jest": "^24.0.15",
-    "@types/object-assign": "^4.0.30",
-    "browserslist": "^4.6.4",
-    "browserstack-local": "^1.4.0",
-    "chokidar-cli": "^1.2.2",
-    "http-server": "^0.11.1",
-    "jest": "^24.0.0",
-    "jest-junit": "^6.4.0",
-    "nightwatch": "^1.1.13",
-    "npm-run-all": "^4.1.5",
-    "rollup": "^1.16.7",
-    "rollup-plugin-typescript2": "^0.22.0",
-    "shx": "^0.3.2",
-    "ts-jest": "^24.0.2",
-    "tslint": "^5.18.0",
-    "typescript": "^3.5.3"
-  }
+    "name": "remove-focus-outline",
+    "version": "2.0.0-beta.4",
+    "description": "Removes CSS outlines in an accessible manner",
+    "main": "lib/remove-focus-outline.cjs.js",
+    "module": "lib/remove-focus-outline.esm.js",
+    "browser": "lib/remove-focus-outline.umd.js",
+    "types": "lib/index.d.ts",
+    "scripts": {
+        "clean": "shx rm -rf lib",
+        "build": "rollup -c",
+        "lint": "tslint --format codeFrame 'src/**/*.ts'",
+        "test": "jest --no-cache --coverage",
+        "e2e": "nightwatch",
+        "start": "run-p start:*",
+        "start:rollup": "rollup -cw",
+        "start:lint-ts": "chokidar 'src/**/*.ts' -c \"npm run lint -- --force\" --initial --verbose",
+        "start:test": "jest --watch --coverage",
+        "debug:jest": "node --nolazy --inspect-brk=9229 node_modules/.bin/jest --runInBand --coverage false --no-cache",
+        "serve": "http-server ./examples"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/lindsayevans/outline.js.git"
+    },
+    "keywords": [
+        "focus",
+        "outline",
+        "css",
+        "a11y",
+        "accessibility"
+    ],
+    "author": "Lindsay Evans <linz@linz.id.au>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/lindsayevans/outline.js/issues"
+    },
+    "homepage": "https://github.com/lindsayevans/outline.js#readme",
+    "devDependencies": {
+        "@types/jest": "^24.0.15",
+        "@types/object-assign": "^4.0.30",
+        "browserslist": "^4.6.4",
+        "browserstack-local": "^1.4.0",
+        "chokidar-cli": "^1.2.2",
+        "http-server": "^0.11.1",
+        "jest": "^24.0.0",
+        "jest-junit": "^6.4.0",
+        "nightwatch": "^1.1.13",
+        "npm-run-all": "^4.1.5",
+        "rollup": "^1.16.7",
+        "rollup-plugin-typescript2": "^0.22.0",
+        "shx": "^0.3.2",
+        "ts-jest": "^24.0.2",
+        "tslint": "^5.18.0",
+        "typescript": "^3.5.3"
+    }
 }
