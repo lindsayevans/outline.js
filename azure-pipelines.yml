@@ -14,11 +14,23 @@ steps:
 
 - script: |
     npm run test
-  displayName: 'Test'
+  displayName: 'Run unit tests'
 
 - script: |
     npm run build
   displayName: 'Build'
+
+- script: |
+    docker run --name rfo-test --rm -d -v "$(pwd):/usr/share/nginx/html" -p 8080:80 nginx
+  displayName: 'Start test server'
+
+- script: |
+    curl http://localhost:8080/examples/
+  displayName: 'Run e2e tests'
+
+- script: |
+    docker stop rfo-test
+  displayName: 'Stop test server'
 
 - task: PublishTestResults@2
   inputs:
