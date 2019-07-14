@@ -28,7 +28,7 @@ steps:
   displayName: 'Start test server'
 
 - script: |
-    curl http://localhost:8080/examples/
+    npm run e2e
   displayName: 'Run e2e tests'
 
 - script: |
