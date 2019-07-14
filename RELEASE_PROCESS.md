@@ -10,7 +10,7 @@
 ## Beta releases
 
 -   Update `version` in `package.json` using [SemVer](https://semver.org/)
-    -   e.g. `1.2.3` -> `1.3.0-beta.0`
+    -   e.g. `1.2.3` -> `1.3.0-beta.1`
 -   Tag `develop` with new version number
 -   Push `develop`, will trigger new build in Azure DevOps
 
