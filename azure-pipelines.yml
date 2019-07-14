@@ -1,42 +1,25 @@
-pool:
-  vmImage: 'Ubuntu 16.04'
+jobs:
+- job: Beta build
+  pool:
+    vmImage: 'Ubuntu 16.04'
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
+    trigger:
+    branches:
+        include:
+        - develop
+    tags:
+        include:
+        - '*-beta.*'
+    steps:
+    - template: deployment-templates/build.yml
 
-- script: |
-    npm ci
-  displayName: 'Install dependencies'
+- job: Release build
+  pool:
+    vmImage: 'Ubuntu 16.04'
 
-- script: |
-    npm run lint
-  displayName: 'Lint'
-
-- script: |
-    npm run test
-  displayName: 'Test'
-
-- script: |
-    npm run build
-  displayName: 'Build'
-
-- task: PublishTestResults@2
-  inputs:
-    testResultsFormat: 'JUnit'
-    testResultsFiles: 'test-reports/*.xml'
-
-- task: DeleteFiles@1
-  inputs:
-    contents: 'node_modules'
-
-- task: DeleteFiles@1
-  inputs:
-    contents: '.rpt2_cache'
-
-- task: PublishBuildArtifacts@1
-  inputs:
-    pathtoPublish: '$(Build.SourcesDirectory)'
-    artifactName: 'drop'
+    trigger:
+    branches:
+        include:
+        - master
+    steps:
+    - template: deployment-templates/build.yml
