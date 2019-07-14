@@ -30,6 +30,8 @@ steps:
 - script: |
     npm run e2e
   displayName: 'Run e2e tests'
+  env:
+    PERCY_TOKEN: $(PERCY_TOKEN)
 
 - script: |
     docker stop rfo-test
