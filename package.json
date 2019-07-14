@@ -1,6 +1,6 @@
 {
     "name": "remove-focus-outline",
-    "version": "2.0.0-beta.4",
+    "version": "2.0.0-beta.5",
     "description": "Removes CSS outlines in an accessible manner",
     "main": "lib/remove-focus-outline.cjs.js",
     "module": "lib/remove-focus-outline.esm.js",
