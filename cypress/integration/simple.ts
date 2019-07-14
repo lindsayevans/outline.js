@@ -8,11 +8,11 @@ describe('Simple page', () => {
         cy.visit('/examples/');
         cy.get('.test-link').focus();
         cy.percySnapshot('Simple page - link shows focus', {
-            widths: [992]
+            widths: [420]
         });
         cy.get('.test-button').focus();
         cy.percySnapshot('Simple page - button shows focus', {
-            widths: [992]
+            widths: [420]
         });
     });
 
@@ -20,11 +20,11 @@ describe('Simple page', () => {
         cy.visit('/examples/');
         cy.get('.test-link').click();
         cy.percySnapshot('Simple page - link hides focus', {
-            widths: [992]
+            widths: [420]
         });
         cy.get('.test-button').click();
         cy.percySnapshot('Simple page - button hides focus', {
-            widths: [992]
+            widths: [420]
         });
     });
 });
