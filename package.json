@@ -39,6 +39,7 @@
     "homepage": "https://github.com/lindsayevans/outline.js#readme",
     "devDependencies": {
         "@types/jest": "^24.0.15",
+        "@types/node": "^12.6.2",
         "@types/object-assign": "^4.0.30",
         "browserslist": "^4.6.4",
         "chokidar-cli": "^1.2.2",
