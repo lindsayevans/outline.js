@@ -21,7 +21,7 @@
 
 	// Using mousedown instead of mouseover, so that previously focused elements don't lose focus ring on mouse move
 	add_event_listener('mousedown', function(){
-		set_css(':focus{outline:0 !important;box-shadow: none !important;}:focus-within{outline:0 !important;box-shadow: none !important;}::-moz-focus-inner{border:0 !important;}');
+		set_css(':focus{outline:0 !important;box-shadow: none !important;}:focus-within{outline:0 !important;box-shadow: none !important;}::-moz-focus-inner{border:0 !important;}input:focus~label[class*="focused-label"]{outline:0 !important;box-shadow:none !important;');
 	});
 
 	add_event_listener('keydown', function(){
